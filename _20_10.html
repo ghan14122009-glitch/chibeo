@@ -1,1011 +1,721 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#2a0a24" />
-  <title>Gửi Thuỳ Duyên 💖</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday Diệu Thương 🎂</title>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Dancing+Script:wght@600&family=Be+Vietnam+Pro:wght@300;400;600&display=swap&subset=vietnamese"
-    rel="stylesheet"
-  />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Dancing+Script:wght@600;700&family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap&subset=vietnamese" rel="stylesheet">
 
-  <style>
-    :root {
-      --pink: #ff6fae;
-      --rose: #ff3d84;
-      --gold: #ffd9a8;
-      --text: #fff1f6;
-      --serif: "Playfair Display", Georgia, serif;
-      --script: "Dancing Script", "Segoe Script", cursive;
-      --sans: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif;
-      box-sizing: border-box;
-    }
+<style>
+:root {
+    --pink: #ff6fae;
+    --rose: #ff3d84;
+    --gold: #ffd9a8;
+    --text: #fff1f6;
+    --serif: "Playfair Display", Georgia, serif;
+    --script: "Dancing Script", cursive;
+    --sans: "Be Vietnam Pro", Arial, sans-serif;
+}
 
-    *, *::before, *::after {
-      box-sizing: inherit;
-    }
+* {
+    box-sizing: border-box;
+}
 
-    html, body {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      overflow: hidden;
-    }
+html, body {
+    margin: 0;
+    min-height: 100%;
+}
 
-    body {
-      background: radial-gradient(circle at 50% 30%, #4a1240, #2a0a24 70%);
-      color: var(--text);
-      font-family: var(--sans);
-      -webkit-tap-highlight-color: transparent;
-    }
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: radial-gradient(circle at 50% 30%, #4a1240, #2a0a24 70%);
+    color: var(--text);
+    font-family: var(--sans);
+}
 
-    .glow {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: .35;
-      pointer-events: none;
-    }
+.glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: .35;
+    pointer-events: none;
+}
 
-    .g1 {
-      width: 50vmax;
-      height: 50vmax;
-      background: #ff2d8a;
-      left: -15vmax;
-      top: -10vmax;
-    }
+.g1 {
+    width: 50vmax;
+    height: 50vmax;
+    background: #ff2d8a;
+    left: -15vmax;
+    top: -10vmax;
+}
 
-    .g2 {
-      width: 40vmax;
-      height: 40vmax;
-      background: #8a3dff;
-      right: -12vmax;
-      bottom: -10vmax;
-    }
+.g2 {
+    width: 40vmax;
+    height: 40vmax;
+    background: #8a3dff;
+    right: -12vmax;
+    bottom: -10vmax;
+}
 
-    .star {
-      position: fixed;
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: #fff;
-      animation: tw 3s infinite alternate;
-      pointer-events: none;
-    }
+.star {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: white;
+    animation: tw 3s infinite alternate;
+    pointer-events: none;
+}
 
-    @keyframes tw {
-      from { opacity: .1; }
-      to {
+@keyframes tw {
+    from { opacity: .1; }
+    to {
         opacity: .9;
-        box-shadow: 0 0 8px #fff;
-      }
+        box-shadow: 0 0 8px white;
     }
+}
 
-    #stage {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem;
-      transition: opacity 1s, transform 1s;
-      z-index: 2;
+.screen {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 16px;
+    text-align: center;
+    animation: appear 1s ease;
+}
+
+.screen.active {
+    display: flex;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.96);
     }
-
-    #stage.hide {
-      opacity: 0;
-      transform: scale(.92);
-      pointer-events: none;
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
+}
 
-    .line {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      text-align: center;
-      font-family: var(--serif);
-      font-weight: 900;
-      line-height: 1.15;
-    }
-
-    .l1 {
-      font-size: clamp(1.5rem, 7vw, 4rem);
-      color: #fff;
-    }
-
-    .l2 {
-      font-size: clamp(2.4rem, 11vw, 5.8rem);
-      color: var(--pink);
-      text-shadow: 0 0 30px var(--rose);
-    }
-
-    .slot {
-      display: inline-block;
-      opacity: 0;
-      min-width: .05em;
-    }
-
-    .slot.sp {
-      min-width: .35em;
-    }
-
-    .slot.ok {
-      opacity: 1;
-      animation: pop .6s;
-    }
-
-    @keyframes pop {
-      0% {
-        transform: scale(1.6);
-        filter: brightness(2.5);
-      }
-      100% {
-        transform: none;
-        filter: none;
-      }
-    }
-
-    .fly {
-      position: fixed;
-      left: 0;
-      top: 0;
-      z-index: 3;
-      pointer-events: none;
-      font-family: var(--serif);
-      font-weight: 900;
-      color: #ffb3d4;
-      text-shadow: 0 0 14px var(--rose);
-      will-change: transform;
-    }
-
-    #hint {
-      font-family: var(--script);
-      font-size: clamp(1.2rem, 4vw, 1.6rem);
-      color: var(--gold);
-      animation: pulse 1.6s infinite;
-      margin-top: 1rem;
-      text-align: center;
-    }
-
-    @keyframes pulse {
-      50% {
-        opacity: .5;
-        transform: scale(1.05);
-      }
-    }
-
-    #btn, .b2 {
-      padding: .85rem 2rem;
-      border: 0;
-      border-radius: 99px;
-      font: 600 1rem var(--sans);
-      color: #fff;
-      cursor: pointer;
-      background: linear-gradient(135deg, #ff6fae, #ff3d84);
-      box-shadow: 0 0 28px rgba(255, 61, 132, .55);
-      transition: transform .2s;
-      z-index: 5;
-    }
-
-    #btn:hover, .b2:hover {
-      transform: scale(1.07);
-    }
-
-    #card {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 1rem;
-      padding-top: max(1rem, env(safe-area-inset-top));
-      padding-bottom: max(1rem, env(safe-area-inset-bottom));
-      z-index: 4;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 1.2s;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-    }
-
-    #card.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .box {
-      position: relative;
-      margin: auto;
-      max-width: 420px;
-      width: 100%;
-      text-align: center;
-      padding: 1.5rem 1.1rem 1.1rem;
-      border-radius: 24px;
-      background: linear-gradient(
+.glass {
+    width: 100%;
+    max-width: 650px;
+    padding: 35px 22px;
+    border-radius: 25px;
+    background: linear-gradient(
         160deg,
         rgba(255,255,255,.13),
         rgba(255,255,255,.04)
-      );
-      border: 1px solid rgba(255,182,213,.4);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow:
-        0 25px 90px rgba(255,61,132,.35),
+    );
+    border: 1px solid rgba(255,182,213,.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+        0 25px 90px rgba(255,61,132,.25),
         inset 0 0 40px rgba(255,150,200,.08);
-      transform: scale(.85) translateY(30px);
-      transition: transform 1.2s cubic-bezier(.2, 1.3, .3, 1);
-    }
+}
 
-    #card.show .box {
-      transform: none;
-    }
+.badge {
+    display: inline-block;
+    padding: 7px 16px;
+    border-radius: 99px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #4a1240;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ffd9a8, #ffb3d4);
+    box-shadow: 0 0 20px rgba(255,217,168,.4);
+}
 
-    .badge {
-      display: inline-block;
-      padding: .35rem .8rem;
-      border-radius: 99px;
-      font-size: .66rem;
-      letter-spacing: .1em;
-      color: #4a1240;
-      font-weight: 600;
-      background: linear-gradient(90deg, #ffd9a8, #ffb3d4);
-      box-shadow: 0 0 20px rgba(255,217,168,.5);
-    }
+h1 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 8vw, 65px);
+    margin: 22px 0 8px;
+    color: white;
+    text-shadow: 0 0 25px var(--rose);
+}
 
-    .big {
-      font-size: 2.1rem;
-      margin: .4rem 0 0;
-      animation: beat 1.2s infinite;
-    }
+.script {
+    font-family: var(--script);
+    color: var(--gold);
+    font-size: clamp(28px, 7vw, 50px);
+    margin: 12px 0;
+}
 
-    @keyframes beat {
-      15% { transform: scale(1.25); }
-      30% { transform: scale(1); }
-      45% { transform: scale(1.18); }
-    }
+.subtitle {
+    font-size: 13px;
+    line-height: 1.9;
+    color: #f4cddd;
+    font-weight: 300;
+}
 
-    .t1 {
-      font-family: var(--script);
-      font-size: 1.35rem;
-      color: var(--gold);
-      margin: 0;
-    }
+button {
+    border: 0;
+    border-radius: 99px;
+    padding: 14px 28px;
+    color: white;
+    font: 600 14px var(--sans);
+    background: linear-gradient(135deg, #ff6fae, #ff3d84);
+    box-shadow: 0 0 28px rgba(255,61,132,.45);
+    cursor: pointer;
+    transition: .3s;
+}
 
-    .t2 {
-      font-family: var(--serif);
-      font-size: clamp(1.7rem, 8vw, 2.4rem);
-      margin: 0 0 .2rem;
-      overflow-wrap: anywhere;
-      background: linear-gradient(
-        90deg,
-        #ff9ec8,
-        #fff,
-        #ffd9a8,
-        #ff6fae,
-        #ff9ec8
-      );
-      background-size: 250% 100%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: sh 5s linear infinite;
-    }
+button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 35px rgba(255,130,190,.7);
+}
 
-    @keyframes sh {
-      to { background-position: -250% 0; }
-    }
+button:disabled {
+    cursor: default;
+}
 
-    .orn {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      justify-content: center;
-      color: var(--pink);
-      margin: .4rem 0 1rem;
-    }
+/* Màn hình chữ cái */
 
-    .orn::before, .orn::after {
-      content: "";
-      height: 1px;
-      width: 22%;
-      background: linear-gradient(90deg, transparent, var(--pink));
-    }
+.letters {
+    min-height: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin: 35px auto;
+}
 
-    .orn::after {
-      transform: scaleX(-1);
-    }
+.letter {
+    width: 39px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid rgba(255,182,213,.4);
+    background: rgba(255,255,255,.08);
+    color: #ffe3ed;
+    font: 900 30px var(--serif);
+    text-shadow: 0 0 15px var(--rose);
+    transition: .7s;
+    animation: float 2s ease-in-out infinite alternate;
+}
 
-    #msg {
-      font-weight: 300;
-      font-size: .9rem;
-      line-height: 1.8;
-      min-height: 6.4em;
-      margin: 0 .3rem;
-      overflow-wrap: anywhere;
-    }
+@keyframes float {
+    to { transform: translateY(-8px) rotate(4deg); }
+}
 
-    .wishes {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .45rem;
-      margin: .8rem 0;
-    }
+.letter.space {
+    width: 13px;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
 
-    .w {
-      padding: .6rem .4rem;
-      border-radius: 14px;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,182,213,.25);
-      opacity: 0;
-      transform: translateY(20px) scale(.9);
-      transition: all .8s cubic-bezier(.2, 1.4, .3, 1);
-    }
+/* Bánh kem */
 
-    .w.on {
-      opacity: 1;
-      transform: none;
-    }
+.cake-area {
+    position: relative;
+    width: 310px;
+    height: 270px;
+    margin: 35px auto 10px;
+}
 
-    .w i {
-      font-style: normal;
-      font-size: 1.2rem;
-      display: block;
-    }
+.cake {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+}
 
-    .w b {
-      display: block;
-      font-family: var(--serif);
-      font-size: .82rem;
-      color: #ffc2dc;
-      margin: .2rem 0;
-    }
+.cake-top {
+    height: 55px;
+    width: 260px;
+    border-radius: 50%;
+    background: linear-gradient(180deg,#fff7fa,#f5b8cf);
+    border: 3px solid #ffe4ed;
+    position: relative;
+    z-index: 2;
+}
 
-    .w span {
-      font-size: .68rem;
-      font-weight: 300;
-      opacity: .85;
-      line-height: 1.5;
-      display: block;
-    }
+.cake-body {
+    width: 250px;
+    height: 90px;
+    margin: -10px auto 0;
+    border-radius: 0 0 18px 18px;
+    background: linear-gradient(90deg,#c64d7e,#f39cba,#b93f72);
+    box-shadow: 0 12px 20px rgba(0,0,0,.3);
+    position: relative;
+}
 
-    .quote {
-      font-family: var(--script);
-      font-size: 1.15rem;
-      color: var(--gold);
-      line-height: 1.6;
-      opacity: 0;
-      transition: opacity 1.2s;
-    }
+.cake-body::before {
+    content: "♥     ♥     ♥";
+    position: absolute;
+    top: 27px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #fff0f5;
+    font-size: 22px;
+}
 
-    .sign {
-      font-family: var(--script);
-      font-size: 1.2rem;
-      color: var(--pink);
-      margin: .4rem 0 .3rem;
-      opacity: 0;
-      transition: opacity 1.2s;
-    }
+.cake-bottom {
+    width: 280px;
+    height: 35px;
+    margin: -2px auto 0;
+    border-radius: 50%;
+    background: #f6c5d8;
+    box-shadow: 0 8px 15px rgba(0,0,0,.3);
+}
 
-    .on2 {
-      opacity: 1;
-    }
+.candles {
+    position: absolute;
+    z-index: 5;
+    top: 43px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+}
 
-    .btns {
-      display: flex;
-      gap: .7rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      opacity: 0;
-      transition: opacity 1s;
-    }
+.candle {
+    width: 22px;
+    height: 78px;
+    padding: 0;
+    border-radius: 5px 5px 2px 2px;
+    position: relative;
+    background: repeating-linear-gradient(
+        135deg,
+        #fff2f7 0px,
+        #fff2f7 8px,
+        #ed8db1 8px,
+        #ed8db1 15px
+    );
+    box-shadow: 0 0 10px rgba(255,255,255,.2);
+}
 
-    .btns small {
-      font-size: .7rem;
-      opacity: .7;
-      letter-spacing: .04em;
-      font-weight: 300;
-    }
+.candle::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 12px;
+    background: #4b2834;
+    top: -11px;
+    left: 9px;
+}
 
-    .heart {
-      position: fixed;
-      bottom: -50px;
-      z-index: 1;
-      pointer-events: none;
-      animation: up linear forwards;
-      filter: drop-shadow(0 0 8px rgba(255,61,132,.7));
-    }
+.flame {
+    position: absolute;
+    width: 16px;
+    height: 25px;
+    background: radial-gradient(
+        circle at 50% 70%,
+        white 0%,
+        #fff8a6 25%,
+        #ff9d35 65%,
+        transparent 75%
+    );
+    border-radius: 50%;
+    top: -35px;
+    left: 3px;
+    filter: drop-shadow(0 0 9px #ffbb48);
+    animation: flicker .5s infinite alternate;
+    pointer-events: none;
+}
 
-    @keyframes up {
-      to {
-        transform: translate(var(--dx), -115vh) rotate(var(--rot));
+@keyframes flicker {
+    from { transform: scale(1) rotate(-5deg); }
+    to { transform: scale(.8,1.1) rotate(5deg); }
+}
+
+.candle.off {
+    opacity: .65;
+    cursor: default;
+    box-shadow: none;
+}
+
+.candle.off .flame {
+    display: none;
+}
+
+.smoke {
+    display: none;
+    position: absolute;
+    top: -38px;
+    left: 3px;
+    font-size: 21px;
+    color: #ddd;
+    pointer-events: none;
+    animation: smoke 1.5s ease-out forwards;
+}
+
+.candle.off .smoke {
+    display: block;
+}
+
+@keyframes smoke {
+    to {
+        transform: translateY(-25px);
         opacity: 0;
-      }
     }
+}
 
-    .burst {
-      position: fixed;
-      z-index: 9;
-      pointer-events: none;
-      animation: bst .9s ease-out forwards;
+.instruction {
+    color: #ffd4e4;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.wish-box {
+    max-width: 550px;
+    min-height: 75px;
+    margin: 22px auto 0;
+    color: #ffe4ef;
+    font-family: var(--script);
+    font-size: clamp(23px,5vw,32px);
+    line-height: 1.5;
+    text-shadow: 0 0 15px #ff86b5;
+}
+
+.counter {
+    color: #e8b7cb;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.final-heart {
+    font-size: 65px;
+    margin: 20px;
+    animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+    50% { transform: scale(1.2); }
+}
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    width: 9px;
+    height: 13px;
+    z-index: 10;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: .2;
     }
+}
 
-    @keyframes bst {
-      to {
-        transform: translate(var(--bx), var(--by)) scale(.3);
-        opacity: 0;
-      }
-    }
-
-    #cur {
-      position: fixed;
-      left: 0;
-      top: 0;
-      z-index: 99;
-      pointer-events: none;
-      font-size: 26px;
-      color: #ff3d84;
-      text-shadow: 0 0 12px #ff3d84, 0 0 28px #ff6fae;
-      opacity: 0;
-      transition: opacity .3s;
-    }
-
-    #cur span {
-      display: inline-block;
-      animation: beat 1.2s infinite;
-    }
-
-    .trail {
-      position: fixed;
-      z-index: 98;
-      pointer-events: none;
-      color: #ff6fae;
-      transform: translate(-50%, -50%);
-      animation: tr 1.1s ease-out forwards;
-      text-shadow: 0 0 8px rgba(255,61,132,.8);
-    }
-
-    @keyframes tr {
-      to {
-        transform: translate(calc(-50% + var(--tx)), -90px) scale(.4);
-        opacity: 0;
-      }
-    }
-
-    @media (pointer: fine) {
-      body { cursor: none; }
-      body * { cursor: none !important; }
-    }
-
-    @media (pointer: coarse) {
-      #cur, .trail { display: none; }
-    }
-
-    @media (max-width: 360px) {
-      .box {
-        padding: 1.2rem .8rem .9rem;
-      }
-
-      .wishes {
-        gap: .35rem;
-      }
-
-      .w span {
-        font-size: .64rem;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+@media(max-width: 420px) {
+    .glass { padding: 30px 14px; }
+    .cake-area { transform: scale(.88); margin: 20px auto 0; }
+    .letter { width: 32px; height: 45px; font-size: 25px; }
+    .letters { gap: 6px; }
+}
+</style>
 </head>
 
 <body>
-  <div class="glow g1"></div>
-  <div class="glow g2"></div>
 
-  <div id="stage">
-    <div class="line l1" id="l1"></div>
-    <div class="line l2" id="l2"></div>
-    <div id="hint">✦ Có một thông điệp đang bay lạc... ✦</div>
-    <button id="btn">Giải mã 💌</button>
-  </div>
+<div class="glow g1"></div>
+<div class="glow g2"></div>
 
-  <div id="card">
-    <div class="box">
-      <span class="badge">20 · 10 &nbsp; Ngày Phụ nữ Việt Nam</span>
-      <div class="big">💖</div>
-      <p class="t1">Gửi riêng cho</p>
-      <h1 class="t2" id="name"></h1>
-      <div class="orn">❀ ❤ ❀</div>
-      <div id="msg"></div>
-      <div class="wishes" id="wishes"></div>
-      <div class="quote" id="quote"></div>
-      <div class="sign" id="sign"></div>
-      <div class="btns" id="btns">
-        <small>Nhấn phím Space để thả thêm tim ♡</small>
-      </div>
+<!-- MÀN HÌNH 1: CHỮ CÁI XÁO TRỘN -->
+<section class="screen active" id="screen1">
+    <div class="glass">
+        <span class="badge">A LITTLE SURPRISE</span>
+        <h1>Something Special</h1>
+        <p class="subtitle">
+            Có một thông điệp đặc biệt đang chờ được giải mã...
+        </p>
+
+        <div class="letters" id="letters"></div>
+
+        <p class="script">Can you guess?</p>
+        <button id="decodeBtn" onclick="decodeName()">
+            Giải mã bí mật ✨
+        </button>
     </div>
-  </div>
+</section>
 
-  <script>
-    // ==========================================
-    // CẤU HÌNH LỜI CHÚC DÀNH RIÊNG CHO THUỲ DUYÊN
-    // ==========================================
+<!-- MÀN HÌNH 2: CHÚC MỪNG SINH NHẬT -->
+<section class="screen" id="screen2">
+    <div class="glass">
+        <span class="badge">TODAY IS YOUR DAY</span>
+        <h1>Chúc Mừng</h1>
+        <h1 style="color:#ff9ec8;margin-top:0">Sinh Nhật!</h1>
+        <div class="script">Diệu Thương</div>
 
-    const CFG = {
-      l1: "CHÚC MỪNG 20/10",
-      l2: "THUỲ DUYÊN",
-      name: "Thuỳ Duyên",
+        <p class="subtitle">
+            Chúc Diệu Thương có một ngày sinh nhật thật vui vẻ,<br>
+            luôn rạng rỡ và gặp thật nhiều điều may mắn nhé!
+        </p>
 
-      intro:
-        "Nhân ngày 20/10, chúc Thuỳ Duyên luôn xinh đẹp, rạng rỡ như đóa hồng đầu mùa. Mong mỗi ngày của bạn đều ngập tràn tiếng cười, bình yên và thật nhiều yêu thương. Chúc bạn luôn tự tin, vui vẻ và gặp được những điều thật tuyệt vời trong cuộc sống. 🌸",
+        <br>
+        <button onclick="showCake()">
+            Mở món quà đặc biệt 🎂
+        </button>
+    </div>
+</section>
 
-      wishes: [
-        ["🌸", "Luôn xinh đẹp", "Rạng rỡ từ nụ cười đến trái tim."],
-        ["💖", "Thật hạnh phúc", "Mỗi ngày đều có một niềm vui nhỏ."],
-        ["✨", "Luôn bình yên", "Nhẹ nhàng giữa mọi bộn bề."],
-        ["🌹", "Được yêu thương", "Nhiều hơn bạn có thể đếm hết."]
-      ],
+<!-- MÀN HÌNH 3: BÁNH KEM VÀ 4 CÂY NẾN -->
+<section class="screen" id="screen3">
+    <div class="glass">
+        <span class="badge">MAKE A WISH</span>
+        <h1 style="font-size:clamp(30px,7vw,48px)">
+            A Birthday Cake
+        </h1>
 
-      quote:
-        "Mong rằng những điều dịu dàng nhất sẽ luôn tìm đến Duyên, như cách những bông hoa tìm về phía ánh mặt trời.",
+        <p class="instruction">
+            Có 4 điều ước dành cho ngày đặc biệt này.<br>
+            Hãy nhấn vào từng cây nến để thổi tắt nhé!
+        </p>
 
-      sign: "— Chúc Duyên một ngày 20/10 thật đặc biệt 🌹"
-    };
+        <div class="cake-area">
+            <div class="candles">
+                <button class="candle" onclick="blow(0)" aria-label="Thổi nến 1">
+                    <span class="flame"></span>
+                    <span class="smoke">〰</span>
+                </button>
 
-    const POOL = "ABCDEFGHIKLMNOPQRSTUVXYĂÂÊÔƠƯ0123456789";
+                <button class="candle" onclick="blow(1)" aria-label="Thổi nến 2">
+                    <span class="flame"></span>
+                    <span class="smoke">〰</span>
+                </button>
 
-    const rnd = (a) =>
-      Array.isArray(a) || typeof a === "string"
-        ? a[Math.floor(Math.random() * a.length)]
-        : 0;
+                <button class="candle" onclick="blow(2)" aria-label="Thổi nến 3">
+                    <span class="flame"></span>
+                    <span class="smoke">〰</span>
+                </button>
 
-    const R = (a, b) => Math.random() * (b - a) + a;
-    const $ = (id) => document.getElementById(id);
+                <button class="candle" onclick="blow(3)" aria-label="Thổi nến 4">
+                    <span class="flame"></span>
+                    <span class="smoke">〰</span>
+                </button>
+            </div>
 
-    // Tạo bầu trời sao
-    for (let i = 0; i < 60; i++) {
-      const s = document.createElement("div");
-      s.className = "star";
-      s.style.cssText =
-        `left:${R(0, 100)}vw;top:${R(0, 100)}vh;animation-delay:${R(0, 3)}s`;
-      document.body.appendChild(s);
+            <div class="cake">
+                <div class="cake-top"></div>
+                <div class="cake-body"></div>
+                <div class="cake-bottom"></div>
+            </div>
+        </div>
+
+        <div class="wish-box" id="wishBox">
+            Hãy chọn một cây nến nhé! ✨
+        </div>
+
+        <div class="counter" id="counter">
+            Đã thổi tắt 0 / 4 cây nến
+        </div>
+    </div>
+</section>
+
+<!-- MÀN HÌNH 4: LỜI CHÚC CUỐI -->
+<section class="screen" id="screen4">
+    <div class="glass">
+        <span class="badge">A SPECIAL WISH FOR YOU</span>
+        <div class="final-heart">🎂</div>
+
+        <h1 style="font-size:clamp(34px,8vw,58px)">
+            Happy Birthday!
+        </h1>
+
+        <div class="script">Diệu Thương</div>
+
+        <p class="subtitle" style="font-size:14px">
+            Chúc bạn tuổi mới luôn vui vẻ, mạnh khỏe và hạnh phúc.<br><br>
+            Mong rằng những dự định của bạn đều trở thành hiện thực,
+            mỗi ngày đều có thật nhiều niềm vui và những điều tốt đẹp.<br><br>
+            Hãy luôn tự tin, giữ nụ cười trên môi
+            và tạo nên thật nhiều kỷ niệm đáng nhớ nhé!<br><br>
+            <b style="color:#ffd9a8">
+                Chúc mừng sinh nhật! 🎉
+            </b>
+        </p>
+
+        <div class="script" style="font-size:30px">
+            Have a wonderful year!
+        </div>
+
+        <button onclick="location.reload()">
+            Xem lại từ đầu ↻
+        </button>
+    </div>
+</section>
+
+<script>
+// Tạo sao lấp lánh
+for (let i = 0; i < 65; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.animationDelay = Math.random() * 3 + "s";
+    document.body.appendChild(star);
+}
+
+// Chữ cái tên Diệu Thương
+const nameLetters = [
+    "D","I","Ệ","U","T","H","Ư","Ơ","N","G"
+];
+
+const lettersBox = document.getElementById("letters");
+let decoded = false;
+
+function shuffle(array) {
+    const result = [...array];
+
+    for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
     }
 
-    // Hiển thị nội dung thiệp
-    $("name").textContent = CFG.name;
-    $("sign").textContent = CFG.sign;
-    $("quote").textContent = CFG.quote;
+    return result;
+}
 
-    CFG.wishes.forEach((w) => {
-      const item = document.createElement("div");
-      item.className = "w";
+function createLetters() {
+    lettersBox.innerHTML = "";
 
-      const icon = document.createElement("i");
-      icon.textContent = w[0];
+    const mixed = shuffle(nameLetters);
 
-      const title = document.createElement("b");
-      title.textContent = w[1];
+    mixed.forEach((letter, index) => {
+        const item = document.createElement("span");
+        item.className = "letter";
+        item.textContent = letter;
+        item.style.animationDelay = (index * .08) + "s";
+        lettersBox.appendChild(item);
+    });
+}
 
-      const description = document.createElement("span");
-      description.textContent = w[2];
+createLetters();
 
-      item.append(icon, title, description);
-      $("wishes").appendChild(item);
+// Chuyển màn hình
+function switchScreen(id) {
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
     });
 
-    // ==========================================
-    // HIỆU ỨNG CHỮ BAY VÀ GIẢI MÃ
-    // ==========================================
+    document.getElementById(id).classList.add("active");
+}
 
-    const flyers = [];
+// Giải mã tên
+function decodeName() {
+    if (decoded) return;
+    decoded = true;
 
-    let W = innerWidth;
-    let H = innerHeight;
-    let decoding = false;
-    let landed = 0;
-    let total = 0;
-    let animationStarted = false;
-    let cardShown = false;
+    const button = document.getElementById("decodeBtn");
+    button.disabled = true;
+    button.textContent = "Đang giải mã...";
 
-    function build(el, text, cls) {
-      [...text].forEach((c) => {
-        const s = document.createElement("span");
+    lettersBox.innerHTML = "";
 
-        s.className = "slot" + (c === " " ? " sp" : "");
-        s.textContent = c === " " ? "\u00a0" : c;
-        el.appendChild(s);
-
-        if (c !== " ") {
-          flyers.push({
-            slot: s,
-            c,
-            cls,
-            real: true
-          });
-        }
-      });
-    }
-
-    build($("l1"), CFG.l1, "l1");
-    build($("l2"), CFG.l2, "l2");
-
-    total = flyers.length;
-
-    function mk(f, size) {
-      const e = document.createElement("div");
-
-      e.className = "fly";
-      e.style.fontSize = size + "px";
-      e.style.opacity = f.real ? 1 : .55;
-      e.style.color = rnd([
-        "#ffb3d4",
-        "#ff6fae",
-        "#ffd9a8",
-        "#e0b3ff",
-        "#ffffff"
-      ]);
-
-      e.textContent = rnd(POOL);
-      document.body.appendChild(e);
-
-      Object.assign(f, {
-        el: e,
-        x: R(0, W),
-        y: R(0, H),
-        vx: R(-2.6, 2.6),
-        vy: R(-2.6, 2.6),
-        rot: R(0, 360),
-        vr: R(-4, 4),
-        t: R(0, 6),
-        sc: 1,
-        state: "fly"
-      });
-    }
-
-    function init() {
-      if (animationStarted) return;
-      animationStarted = true;
-
-      flyers.forEach((f) => {
-        mk(f, parseFloat(getComputedStyle(f.slot).fontSize));
-      });
-
-      // Các ký tự gây nhiễu
-      for (let i = 0; i < 34; i++) {
-        const f = {
-          real: false,
-          c: "",
-          cls: ""
-        };
-
-        flyers.push(f);
-        mk(f, R(18, 56));
-      }
-
-      requestAnimationFrame(tick);
-    }
-
-    function tick() {
-      flyers.forEach((f) => {
-        if (f.state === "done" || !f.el) return;
-
-        if (f.state === "fly") {
-          f.vx += R(-.12, .12);
-          f.vy += R(-.12, .12);
-
-          const m = Math.hypot(f.vx, f.vy);
-          const mx = 3.2;
-
-          if (m > mx) {
-            f.vx *= mx / m;
-            f.vy *= mx / m;
-          }
-
-          f.x += f.vx;
-          f.y += f.vy;
-          f.rot += f.vr;
-          f.t += .04;
-          f.sc = 1 + Math.sin(f.t) * .35;
-
-          if (f.x < 0 || f.x > W) f.vx *= -1;
-          if (f.y < 0 || f.y > H) f.vy *= -1;
-
-          f.x = Math.max(-10, Math.min(W + 10, f.x));
-          f.y = Math.max(-10, Math.min(H + 10, f.y));
-        } else if (f.state === "go") {
-          const k = .075;
-
-          f.x += (f.tx - f.x) * k;
-          f.y += (f.ty - f.y) * k;
-          f.rot += (0 - f.rot) * k;
-          f.sc += (1 - f.sc) * k;
-
-          if (
-            Math.hypot(f.tx - f.x, f.ty - f.y) < 1.2 &&
-            Math.abs(f.rot) < 1
-          ) {
-            land(f);
-          }
-        }
-
-        if (f.el) {
-          f.el.style.transform =
-            `translate(${f.x}px,${f.y}px) translate(-50%,-50%) rotate(${f.rot}deg) scale(${f.sc})`;
-        }
-      });
-
-      requestAnimationFrame(tick);
-    }
-
-    function land(f) {
-      if (f.state === "done") return;
-
-      f.state = "done";
-
-      if (f.el) f.el.remove();
-
-      if (f.slot) {
-        f.slot.classList.add("ok");
-        sparkle(f.slot);
-      }
-
-      landed++;
-
-      if (landed === total) {
-        $("hint").textContent = "Giải mã thành công 💖";
-        heartStorm();
-
-        setTimeout(showCard, 1800);
-      }
-    }
-
-    // Các ký tự gây nhiễu thay đổi liên tục
-    setInterval(() => {
-      flyers.forEach((f) => {
-        if (
-          f.el &&
-          f.state !== "done" &&
-          Math.random() < .4
-        ) {
-          f.el.textContent = rnd(POOL);
-        }
-      });
-    }, 150);
-
-    function decode() {
-      if (decoding) return;
-
-      decoding = true;
-      $("btn").style.display = "none";
-      $("hint").textContent = "Các chữ cái đang tìm về nhau... ✨";
-
-      let i = 0;
-
-      flyers.forEach((f) => {
-        if (f.real) {
-          setTimeout(() => {
-            if (!f.el || !f.slot) return;
-
-            const r = f.slot.getBoundingClientRect();
-
-            f.tx = r.left + r.width / 2;
-            f.ty = r.top + r.height / 2;
-
-            f.rot = (((f.rot % 360) + 540) % 360) - 180;
-            f.state = "go";
-            f.el.textContent = f.c;
-          }, 600 + i++ * 160);
-        } else {
-          setTimeout(() => {
-            if (f.el) f.el.style.opacity = 0;
-          }, 500 + R(0, 1500));
-
-          setTimeout(() => {
-            f.state = "done";
-            if (f.el) f.el.remove();
-          }, 2600);
-        }
-      });
-    }
-
-    $("btn").addEventListener("click", decode);
-
-    $("stage").addEventListener("click", (e) => {
-      if (e.target.id !== "btn") decode();
-    });
-
-    addEventListener("resize", () => {
-      W = innerWidth;
-      H = innerHeight;
-    });
-
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(init);
-    } else {
-      init();
-    }
-
-    // ==========================================
-    // HIỆU ỨNG LẤP LÁNH VÀ TRÁI TIM
-    // ==========================================
-
-    function sparkle(el) {
-      const r = el.getBoundingClientRect();
-
-      for (let i = 0; i < 4; i++) {
-        burst(
-          r.left + r.width / 2,
-          r.top + r.height / 2,
-          "✦",
-          10
-        );
-      }
-    }
-
-    function burst(x, y, ch, size) {
-      const b = document.createElement("div");
-
-      b.className = "burst";
-      b.textContent = ch;
-
-      b.style.cssText +=
-        `left:${x}px;top:${y}px;font-size:${size + R(0, 10)}px;color:#ffc2dc;--bx:${R(-70, 70)}px;--by:${R(-70, 70)}px`;
-
-      document.body.appendChild(b);
-
-      setTimeout(() => b.remove(), 900);
-    }
-
-    const HEARTS = [
-      "❤", "💖", "💗", "💕",
-      "💘", "🌸", "🌹", "💝"
+    const displayLetters = [
+        "D","I","Ệ","U"," ","T","H","Ư","Ơ","N","G"
     ];
 
-    function heart() {
-      const h = document.createElement("div");
+    displayLetters.forEach((letter, index) => {
+        const item = document.createElement("span");
+        item.className = "letter";
+        item.textContent = letter;
 
-      h.className = "heart";
-      h.textContent = rnd(HEARTS);
+        if (letter === " ") {
+            item.classList.add("space");
+        }
 
-      const d = R(5, 11);
+        lettersBox.appendChild(item);
 
-      h.style.cssText +=
-        `left:${R(0, 100)}vw;font-size:${R(16, 44)}px;animation-duration:${d}s;--dx:${R(-80, 80)}px;--rot:${R(-40, 40)}deg;opacity:${R(.6, 1)}`;
+        setTimeout(() => {
+            item.style.opacity = "1";
+            item.style.transform = "scale(1.25)";
+            setTimeout(() => {
+                item.style.transform = "scale(1)";
+            }, 350);
+        }, index * 180);
+    });
 
-      document.body.appendChild(h);
+    setTimeout(() => {
+        switchScreen("screen2");
+        confettiBurst();
+    }, 2600);
+}
 
-      setTimeout(() => h.remove(), d * 1000);
+// Hiện bánh kem
+function showCake() {
+    switchScreen("screen3");
+}
+
+// Lời chúc theo từng cây nến
+const wishes = [
+    "🌸 Chúc bạn luôn xinh tươi, vui vẻ và tràn đầy năng lượng tích cực!",
+    "🍀 Chúc bạn gặp nhiều may mắn và luôn thành công trong học tập!",
+    "⭐ Chúc mọi ước mơ và dự định của bạn sớm trở thành hiện thực!",
+    "🎁 Chúc tuổi mới có thật nhiều niềm vui, tiếng cười và kỷ niệm đẹp!"
+];
+
+let blown = [false, false, false, false];
+
+function blow(index) {
+    if (blown[index]) return;
+
+    blown[index] = true;
+
+    const candles = document.querySelectorAll(".candle");
+    candles[index].classList.add("off");
+    candles[index].disabled = true;
+
+    document.getElementById("wishBox").textContent = wishes[index];
+
+    const total = blown.filter(Boolean).length;
+
+    document.getElementById("counter").textContent =
+        `Đã thổi tắt ${total} / 4 cây nến`;
+
+    if (total === 4) {
+        document.getElementById("wishBox").textContent =
+            "Bạn đã hoàn thành cả 4 điều ước! 💖";
+
+        setTimeout(() => {
+            switchScreen("screen4");
+            confettiBurst();
+        }, 2500);
     }
+}
 
-    function heartStorm() {
-      for (let i = 0; i < 40; i++) {
-        setTimeout(heart, i * 60);
-      }
+// Hiệu ứng pháo giấy
+function confettiBurst() {
+    const symbols = ["✨", "💖", "🌸", "⭐", "🎉", "💕"];
+
+    for (let i = 0; i < 65; i++) {
+        const piece = document.createElement("div");
+        piece.className = "confetti";
+        piece.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        piece.style.fontSize =
+            (12 + Math.random() * 18) + "px";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => piece.remove(), 5500);
     }
+}
+</script>
 
-    // ==========================================
-    // HIỆN THIỆP CHÚC MỪNG
-    // ==========================================
-
-    function showCard() {
-      if (cardShown) return;
-      cardShown = true;
-
-      $("stage").classList.add("hide");
-      $("card").classList.add("show");
-
-      setInterval(heart, 280);
-      heartStorm();
-
-      let i = 0;
-
-      setTimeout(function type() {
-        $("msg").textContent = CFG.intro.slice(0, ++i);
-
-        if (i < CFG.intro.length) {
-          setTimeout(type, 40);
-        } else {
-          document.querySelectorAll(".w").forEach((w, k) => {
-            setTimeout(() => w.classList.add("on"), k * 350);
-          });
-
-          setTimeout(() => {
-            $("quote").classList.add("on2");
-          }, 1700);
-
-          setTimeout(() => {
-            $("sign").classList.add("on2");
-          }, 2500);
-
-          setTimeout(() => {
-            $("btns").style.opacity = 1;
-          }, 3000);
-        }
-      }, 1200);
-    }
-
-    // Nhấn Space để giải mã hoặc thả thêm tim
-    addEventListener("keydown", (e) => {
-      if (e.code === "Space") {
-        if (
-          e.target instanceof HTMLInputElement ||
-          e.target instanceof HTMLTextAreaElement
-        ) {
-          return;
-        }
-
-        e.preventDefault();
-
-        if (!decoding) {
-          decode();
-        } else {
-          heartStorm();
-        }
-      }
-    });
-
-    // Con trỏ trái tim trên máy tính
-    const cur = document.createElement("div");
-
-    cur.id = "cur";
-    cur.innerHTML = "<span>❤</span>";
-    document.body.appendChild(cur);
-
-    let lt = 0;
-
-    addEventListener("pointermove", (e) => {
-      if (e.pointerType === "touch") return;
-
-      cur.style.transform =
-        `translate(${e.clientX}px,${e.clientY}px) translate(-50%,-50%)`;
-
-      cur.style.opacity = 1;
-
-      const n = performance.now();
-
-      if (n - lt < 50) return;
-      lt = n;
-
-      const t = document.createElement("div");
-
-      t.className = "trail";
-      t.textContent = rnd(["❤", "💖", "💗", "💕"]);
-
-      t.style.cssText +=
-        `left:${e.clientX}px;top:${e.clientY}px;font-size:${R(10, 20)}px;--tx:${R(-30, 30)}px`;
-
-      document.body.appendChild(t);
-
-      setTimeout(() => t.remove(), 1100);
-    });
-
-    document.addEventListener("mouseleave", () => {
-      cur.style.opacity = 0;
-    });
-
-    // Chạm vào thiệp để tạo hiệu ứng trái tim
-    $("card").addEventListener("click", (e) => {
-      if (e.target.tagName !== "BUTTON") {
-        for (let i = 0; i < 6; i++) {
-          burst(
-            e.clientX,
-            e.clientY,
-            rnd(HEARTS),
-            18
-          );
-        }
-      }
-    });
-  </script>
 </body>
 </html>
